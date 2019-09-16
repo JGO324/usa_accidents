@@ -1,7 +1,7 @@
 {
-    "title": "The title of my project",
-    "info": "Some more info about this map.", 
-    "coordinates": [34.5, -94.5],
-    "author": "TastyFreeze", 
-    "link": "https://tastyfreeze.github.io/hometown-map/" 
+    "title": "USA deaths by vehicle accident 2017",
+    "info": "This map show the deaths per 100 million vehicle traveled and Death per 100,000 people per state ",
+    "coordinates": [36.2165227,-113.6842064],
+    "author": "Joël Gonçalves de Freitas",
+    "link": "https://jgo324.github.io/usa_accidents/"
 }
