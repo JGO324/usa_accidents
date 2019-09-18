@@ -2,358 +2,396 @@
 <html>
 
 <head>
-    <meta charset=utf-8 />
-    <title>Deaths by accidents in USA 2017</title>
-    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <meta charset=utf-8 />
+  <title>Deaths by accidents in USA 2017</title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css" />
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,900i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css" />
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,900i" rel="stylesheet">
 
-    <style>
-        /* UK Colors:
+  <style>
+    /* UK Colors:
             #c7c9c8 light gray
             #63666a dark gray
             #15397f dark blue
             #009bda light blue
             #0033a0 official blues
         */
-        body {
-            margin: 0;
-            padding: 0;
-            background: #f5f5f5;
-            font-family: 'Lato', sans-serif;
-            font-weight: 300;
-            color: #3d3d3d;
-            font-size: 1.1em;
-          }
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      color: #3d3d3d;
+      font-size: 1.1em;
+    }
 
-        section {
-            background: #f5f5f5;
-            width: 80%;
-            margin: 10px auto;
-        }
+    section {
+      background: #f5f5f5;
+      width: 80%;
+      margin: 10px auto;
+    }
 
-        h1 {
-            font-family: 'Lato', sans-serif;
-            font-weight: 900i;
-            font-size: 2.8em;
-            font-style: italic;
-            /* The em unit. 3x the current size */
-            letter-spacing: .01em;
-            margin:1.05em 0em 1.5em 3em;
-            /* text-transform: uppercase; */
-        }
+    h1 {
+      font-family: 'Lato', sans-serif;
+      font-weight: 900i;
+      font-size: 2.8em;
+      font-style: italic;
+      /* The em unit. 3x the current size */
+      letter-spacing: .01em;
+      margin: 1.05em 0em 1.5em 3em;
+      /* text-transform: uppercase; */
+    }
 
-        h2 {
-            font-family: 'Lato', sans-serif;
-            font-weight: 300;
-            color: #63666a;
-            font-size: 1.5em;
-            letter-spacing: .06em;
-            font-style: italic;
-            margin: 0 0 25px 0;
-        }
+    h2 {
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      color: #63666a;
+      font-size: 1.5em;
+      letter-spacing: .06em;
+      font-style: italic;
+      margin: 0 0 25px 0;
+    }
 
-        p {
-            background: green;
-            font-size: 1.15em;
-            line-height: 1.8em;
-            margin: 0 0 25px 0;
-        }
+    p {
+      /* background: green; */
+      font-size: 1.15em;
+      line-height: 1.8em;
+      margin: 0 0 25px 0;
+    }
 
-        a {
-            color: #15397f;
-            text-decoration: none;
-        }
+    a {
+      color: #15397f;
+      text-decoration: none;
+    }
 
-        a:hover {
-            text-decoration: underline;
-        }
+    a:hover {
+      text-decoration: underline;
+    }
 
-        ul {
-            padding: 0px 20px 4px 20px;
-            /* font-size: 0.96em; */
-            /* line-height: 1.6em; */
-            color: #63666a;
-        }
+    ul {
+      padding: 0px 20px 4px 20px;
+      /* font-size: 0.96em; */
+      /* line-height: 1.6em; */
+      color: #63666a;
+    }
 
-        li {
-            margin: 10px 0
-        }
+    li {
+      margin: 10px 0
+    }
 
-        #map {
-            width: 100%;
-            margin: 0px auto;
+    #map {
+      width: 100%;
+      margin: 0px auto;
 
-        }
+    }
 
-        .max-image-width {
-            width: 100%;
-        }
+    .max-image-width {
+      width: 100%;
+    }
 
-        /* add custom style class here */
+    /* add custom style class here */
 
-        .linkbox {
-            margin: 3px 0 20px 0;
-            display: block;
-            font-weight: 300;
-        }
+    .linkbox {
+      margin: 3px 0 20px 0;
+      display: block;
+      font-weight: 300;
+    }
 
-        hr {
-            border: 0px;
-            border-bottom: 1px solid #3d3d3d;
-            padding-top: 20px;
-        }
+    hr {
+      border: 0px;
+      border-bottom: 1px solid #3d3d3d;
+      padding-top: 20px;
+    }
 
-        /* Use float property to make two-column layout */
+    /* Use float property to make two-column layout */
 
-        .first-column {
-            float: left;
-            width: 48%;
-            padding-right: 20px;
-        }
+    .first-column {
+      float: left;
+      width: 48%;
+      padding-right: 20px;
+    }
 
-        .column {
-            float: left;
-            width: 48%;
-        }
+    .column {
+      float: left;
+      width: 48%;
+    }
 
-        /* Clear floats after the columns */
+    /* Clear floats after the columns */
 
-        .row:after {
-            content: "";
-            display: table;
-            clear: both;
-        }
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
 
-        .svg-title {
-            float: left;
-            display: inline-block;
-            width: 75px;
-            margin: -8px 10px -8px 0;
-        }
+    .svg-title {
+      float: left;
+      display: inline-block;
+      width: 75px;
+      margin: -8px 10px -8px 0;
+    }
 
-        #footer_img
-        {
-          float: right;
-        }
-        #myfooter
-        {
-          padding-top: 5px;
-          display: block;
-        }
-        iframe
-        {
-          width: 100%;
-          height: 540px;
-          border: 0;
-        }
-        /* create left bar to match the map layout */
+    #footer_img {
+      float: right;
+    }
 
-        #leftbar {
-        width: 56px;
-        height: 250%;
-        margin: 0;
-        padding: 0;
-        /* border-left: 50px solid green; */
-        background-color: #1785fb;
-        position: absolute;
-        left: 0px;
-        padding: 0;
-        margin: 0;
-        z-index: -1;
-        /* top: 40%; */
-          }
-          /* fix the position of the icon */
-        #v_crash
-        {
-          position: absolute;
-        }
-        .img-descr
-        {
-          /* background:#4080F9; */
-          /* color:white; */
-          margin:5px 0 15px 0;
-          font-size: 0.85em;
-        }
-        .img-descr a:link, a:hover, a:visited
-        {
-          font-size: 0.85em;
-          color:darkgray;
-          font-weight: bold;
-          text-decoration: underline;
-          /* cursor: point; */
-        }
-        /*change font size for mobile*/
+    #myfooter {
+      padding-top: 5px;
+      display: block;
+    }
 
-    		@media only screen and (max-width: 1200px) {
-        	.first-column,.column,p, ul, .linkbox{
-          font-size: 0.85em;
-        	}
-          h1,h2{
-          width: 75%;
-          font-size: 95%;
-          padding: 1.2em 0 0em 1em;
-          }
+    iframe {
+      width: 100%;
+      height: 540px;
+      border: 0;
+    }
 
-          iframe
-          {
-            /* width: 100%; */
-            height: 350px;
-            border: 0;
-          }
-      		#leftbar
-      		{
-      			display: none;
-      		}
-          /* my footer info fix for mobile devices */
-          #myfooter
-          {
-            top:10px;
-            padding: 0px 0px 30px 00px;
-            height: 60px;
-            border: none;
-            position: relative;
-            left:0;
-          }
-          /* resize the logo's for movile divices */
-          #footer_img img
-          {
-             width:40%;
-          }
-          /* fix firts column to fit the width of mobile divices */
-          .first-column {
-              float: left;
-              width: 100%;
-              padding-right: 20px;
-          }
-          .column {
-          width: 100%;
-          padding-right: 20px;
-          }
+    /* create left bar to match the map layout */
 
-          #v_crash
-          {
-            width: 56px;
-          }
+    #leftbar {
+      width: 56px;
+      height: 250%;
+      margin: 0;
+      padding: 0;
+      /* border-left: 50px solid green; */
+      background-color: #1785fb;
+      position: absolute;
+      left: 0px;
+      padding: 0;
+      margin: 0;
+      z-index: -1;
+      /* top: 40%; */
+    }
 
-      	}/*closing tag for the mediaquery*/
+    /* fix the position of the icon */
+    #v_crash {
+      position: absolute;
+    }
 
+    .img-descr {
+      /* background:#4080F9; */
+      /* color:white; */
+      margin: 5px 0 15px 0;
+      font-size: 0.85em;
+    }
 
+    .img-descr a:link {
+      font-size: 0.85em;
+      color: darkgray;
+      font-weight: bold;
+      text-decoration: underline;
+      /* cursor: point; */
+    }
+
+    a:hover,
+    a:visited {
+      color: darkgray;
+      text-decoration: underline;
+      /* cursor: point; */
+    }
+
+    /*change font size for mobile*/
+
+    @media only screen and (max-width: 1200px) {
+
+      .first-column,
+      .column,
+      p,
+      ul,
+      .linkbox {
+        font-size: 0.85em;
       }
-    </style>
+
+      h1,
+      h2 {
+        width: 75%;
+        font-size: 95%;
+        padding: 1.2em 0 0em 1em;
+      }
+
+      iframe {
+        /* width: 100%; */
+        height: 350px;
+        border: 0;
+      }
+
+      #leftbar {
+        display: none;
+      }
+
+      /* my footer info fix for mobile devices */
+      #myfooter {
+        top: 10px;
+        padding: 0px 0px 30px 00px;
+        height: 60px;
+        border: none;
+        position: relative;
+        left: 0;
+      }
+
+      /* resize the logo's for movile divices */
+      #footer_img img {
+        width: 40%;
+      }
+
+      /* fix firts column to fit the width of mobile divices */
+      .first-column {
+        float: left;
+        width: 100%;
+        padding-right: 20px;
+      }
+
+      .column {
+        width: 100%;
+        padding-right: 20px;
+      }
+
+      #v_crash {
+        width: 56px;
+      }
+
+    }
+
+    /*closing tag for the mediaquery*/
+  </style>
 </head>
 
 
 
 <body>
-    <div id='leftbar'></div>
+  <div id='leftbar'></div>
   <!-- add the carto map link to the iframe -->
   <iframe src="https://nmp.carto.com/u/jgo324/builder/d9bbb91b-be37-4f00-9137-4a826701890a"></iframe>
-        <!-- add bar to match the carto map layout -->
+  <!-- add bar to match the carto map layout -->
 
-    <section>
+  <section>
 
-        <a href='https://nmp.carto.com/u/jgo324/builder/d9bbb91b-be37-4f00-9137-4a826701890a' class="linkbox">Full-screen version</a>
-        <!-- add title name of the page in h1 -->
-        <img id="v_crash" src="img/transport.png" >
-        <h1>Deaths by accidents in USA 2017</h1>
-        <!-- Author of this map -->
-        <h2>Authored by: Joël Gonçalves de Freitas, </br>Published on 14 Sept 2019</h2>
-        <div class="row">
-            <div class="first-column">
+    <a href='https://nmp.carto.com/u/jgo324/builder/d9bbb91b-be37-4f00-9137-4a826701890a' class="linkbox">Full-screen
+      version</a>
+    <!-- add title name of the page in h1 -->
+    <img id="v_crash" src="img/transport.png">
+    <h1>Deaths by accidents in USA 2017</h1>
+    <!-- Author of this map -->
+    <h2>Authored by: Joël Gonçalves de Freitas, </br>Published on 14 Sept 2019</h2>
+    <div class="row">
+      <div class="first-column">
 
-                <p id="discr-topic">
-                  <h3>Fatality facts 2017 State by state.</h3>
-                  This data is extracted from Insurance Institute for Highway Safety (IIHS).</br>
-                  Analysis of fatality vehicle death rates per state and per vehicle miles traveled in USA relative to the population.</br>
-                  On the above map, you can visualize the adminitrative data of all 50 states and the district of Columbia.</br>
-                  States that are in dark red, are state that has more deaths per 100,000 people.</br>
-                  The deaths per 100 million vehicle traveled range from 0.58 in Massachusetts to 1.80 in South Carolina
-                  and Death per 100,000 people range from 4.5 District of Columbia to 23.1 in Mississippi.
-                  Total crashes of motor vehicle in the United States in 2017 is 34,247 and total deaths is 37,133. Total population of USA is 325,719,178.
+        <p id="discr-topic">
+          <h3>Fatality facts 2017 State by state.</h3>
+          <p>
+            This data is extracted from <a
+              href="https://www.iihs.org/topics/fatality-statistics/detail/state-by-state#alcohol-involvement">Insurance
+              Institute for Highway Safety (IIHS).</a>
+            Analysis of fatality vehicle death rates per state and per vehicle miles traveled in USA relative to the
+            population.</p>
+          <p>On the above map, you can visualize the adminitrative data of all 50 states and the district of Columbia.
+            States that are in dark red, are state that has more deaths per 100,000 people.</p>
 
-                  <h4>Some factor that affect these rates:</h4>
-                  <ul>
-                    <li>Travel speed</li>
-                    <li>State traffic laws</li>
-                    <li>Weather</li>
-                    <li>Influence of Alcohol</li>
-                    <li>Speaking or texting when driving</li>
-                    <li>Not paying attenshon when driving</li>
-                  </ul>
-
-                  Source: <a target="_blank" href="https://www.iihs.org/topics/fatality-statistics/detail/state-by-state#alcohol-involvement">www.iihs.org</a>
-
-                </p>
-                <p id="descr-proj">
-                  <h4>OS, tools and coordinate System used in this project</h4>
-                  <ul>
-                      <li><a target="_blank" href="https://www.qgis.org/en/site/">QGIS 3.8.2 zanzibar for linux</a></li>
-                      <li><a target="_blank" href="https://system76.com/pop">Operation system: Pop-OS 19.04 </a></li>
-                      <li>Sqlite for storing the data and perparing the data</li>
-                      <li><a target="_blank" href="https://carto.com">Carto web mapping platform</a></li>
-                      <li><a target="_blank" href="https://shareicon.net">Icons website</a></li>
-                      <li><a target="_blank" href="https://inkscape.org">Inksape for creating the crash icon</a></li>
-                      <li>Projection Coordinate System: EPSG:5070 (NAD83/Conus Alber). </li>
-                  </ul>
-                  <h4>This map contain the following US data:</h4>
-          				<ul>
-          					<li><a target="_blank" href="http://www.naturalearthdata.com/">USA States and countries scale 1:10m</a></li>
-          					<li>Background: dark grey</li>
-                    <li><a target="_blank" href="https://www.iihs.org/topics/fatality-statistics/detail/state-by-state#alcohol-involvement">Deaths and crashes per state administrative data joined with state data</a></li>
-          				</ul>
-                </p>
-                <hr>
-                <h3>Project assets</h3>
-                <ul>
-                    <li><a href="data/usa_states.geojson" download>Download USA states in geojson</a></li>
-                    <li><a href="data/usa_states_centroid.geojson" download>Download USA state centroids in geojson</a></li>
-                    <li><a href="data/usa_deaths_by_accidents.csv" download>Download death and crash administravie data in csv file format</a></li>
-
-                </ul>
-            </div>
-            <div class="column">
-                <img class="max-image-width" src="https://www.gannett-cdn.com/-mm-/118207e95e4de4dce683f5de009190a2cf5a43dc/c=326-0-2982-1997/local/-/media/2017/08/15/USATODAY/USATODAY/636383860362204823-AP17227048573218.jpg?width=534&height=401&fit=crop"
-                    title="Accident in april 2017 in St. Joseph, Mo">
-                <div class="img-descr">In this April 14, 2017, file photo, law enforcement investigate a quadruple fatal car accident on Riverside
-                  Road in St. Joseph, Mo. </br>source: <a target="_blank" href="https://www.usatoday.com/story/money/cars/2018/02/15/national-safety-council-traffic-deaths/340012002/">USATODAY News</a></div>
-                  <img class="max-image-width" src="https://sa.kapamilya.com/absnews/abscbnnews/media/2018/overseas/03/19/031918-selfdrive.jpg"
-                      title="Race to robot cars continues after fatal crash December 2017">
-                  <div class="img-descr">A self driving Volvo vehicle, purchased by Uber, moves through an intersection in Scottsdale,
-                    Arizona, U.S., December 1, 2017. REUTERS/Natalie Behring/File Photo</br>source:
-                    <a target="_blank" href="https://news.abs-cbn.com/business/tech-biz/03/28/18/race-to-robot-cars-continues-after-fatal-crash">ABS CBN NEWS</a></div>
-            </div>
-
-        </div>
+          <h4>Summary statistics:</h4>
+          <ul>
+            <li>The deaths per 100 million vehicle miles traveled range from 0.58 in Massachusetts to 1.80 in South
+              Carolina.</li>
+            <li>Deaths per 100,000 people range from 4.5 District of Columbia to 23.1 in Mississippi.</li>
+            <li>Total crashes of motor vehicle in the United States in 2017 is 34,247 and total deaths is 37,133. Total
+              population of USA is 325,719,178. Nationally, the death rate is 11.4 deaths per 100,000 population.</li>
+          </ul>
 
 
+
+          <h4>Some factor that affect these rates:</h4>
+          <ul>
+            <li>Travel speed</li>
+            <li>State traffic laws</li>
+            <li>Weather</li>
+            <li>Influence of Alcohol</li>
+            <li>Speaking or texting when driving</li>
+            <li>Not paying attenshon when driving</li>
+          </ul>
+
+          Source: <a target="_blank"
+            href="https://www.iihs.org/topics/fatality-statistics/detail/state-by-state#alcohol-involvement">www.iihs.org</a>
+
+        </p>
+        <p id="descr-proj">
+          <h4>OS, tools and coordinate System used in this project</h4>
+          <ul>
+            <li><a target="_blank" href="https://www.qgis.org/en/site/">QGIS 3.8.2 Zanzibar for Linux</a></li>
+            <li><a target="_blank" href="https://system76.com/pop">Operation system: Pop-OS 19.04 </a></li>
+            <li>Sqlite for storing the data and preparing the data</li>
+            <li><a target="_blank" href="https://carto.com">CARTO web mapping platform</a></li>
+            <li><a target="_blank" href="https://shareicon.net">Icons website</a></li>
+            <li><a target="_blank" href="https://inkscape.org">Inkscape for creating the crash icon</a></li>
+            <li>Projection Coordinate System: EPSG:5070 (NAD83/Conus Alber). </li>
+          </ul>
+          <h4>This map contain the following US data:</h4>
+          <ul>
+            <li><a target="_blank" href="http://www.naturalearthdata.com/">USA States and countries scale 1:10m</a></li>
+            <li><a target="_blank"
+                href="https://www.iihs.org/topics/fatality-statistics/detail/state-by-state#alcohol-involvement">Deaths
+                and crashes per state administrative data joined with state data</a></li>
+          </ul>
+        </p>
         <hr>
+        <h3>Project assets</h3>
+        <ul>
+          <li><a href="data/usa_states.geojson" download>Download USA states in geojson</a></li>
+          <li><a href="data/usa_states_centroid.geojson" download>Download USA state centroids in geojson</a></li>
+          <li><a href="data/usa_deaths_by_accidents.csv" download>Download death and crash administravie data in csv
+              file format</a></li>
 
-        <div class="footer">
-          <!--  -->
+        </ul>
+      </div>
+      <div class="column">
+        <img class="max-image-width"
+          src="https://www.gannett-cdn.com/-mm-/118207e95e4de4dce683f5de009190a2cf5a43dc/c=326-0-2982-1997/local/-/media/2017/08/15/USATODAY/USATODAY/636383860362204823-AP17227048573218.jpg?width=534&height=401&fit=crop"
+          title="Accident in april 2017 in St. Joseph, Mo">
+        <div class="img-descr">In this April 14, 2017, file photo, law enforcement investigate a quadruple fatal car
+          accident on Riverside
+          Road in St. Joseph, Mo. </br>source: <a target="_blank"
+            href="https://www.usatoday.com/story/money/cars/2018/02/15/national-safety-council-traffic-deaths/340012002/">USATODAY
+            News</a></div>
+        <img class="max-image-width"
+          src="https://sa.kapamilya.com/absnews/abscbnnews/media/2018/overseas/03/19/031918-selfdrive.jpg"
+          title="Race to robot cars continues after fatal crash December 2017">
+        <div class="img-descr">A self driving Volvo vehicle, purchased by Uber, moves through an intersection in
+          Scottsdale,
+          Arizona, U.S., December 1, 2017. REUTERS/Natalie Behring/File Photo</br>source:
+          <a target="_blank"
+            href="https://news.abs-cbn.com/business/tech-biz/03/28/18/race-to-robot-cars-continues-after-fatal-crash">ABS
+            CBN NEWS</a></div>
+      </div>
 
-            <div id="footer_img">
-              <a href="https://uky-gis.github.io">
-                  <img src="https://uky-gis.github.io/graphics/logo-color-400px.png"
-                      alt="University of Kentucky Geography"></a>
-              <a href="https://newmapsplus.as.uky.edu">
-                  <img src="https://newmapsplus.as.uky.edu/sites/default/files/NMP%20Logo.png" alt="New Maps Plus"></a>
-            </div>
-            <div id=myfooter>
-              <ul>
-
-                <li>See my projects on GitHub: <a href="https://github.com/JGO324">JO324</a></li>
-                <li>Visit my projects on Carto: <a href="https://nmp.carto.com/u/jgo324">JO324</a></li>
-                <li>Visit my facebook page: <a href='https://www.facebook.com/joel.goncalvesdefreitas'>joel.goncalvesdefreitas</a></li>
-              </ul>
-            </div>
-
-        </div>
+    </div>
 
 
+    <hr>
 
-    </section>
+    <div class="footer">
+      <!--  -->
+
+      <div id="footer_img">
+        <a href="https://uky-gis.github.io">
+          <img src="https://uky-gis.github.io/graphics/logo-color-400px.png" alt="University of Kentucky Geography"></a>
+        <a href="https://newmapsplus.as.uky.edu">
+          <img src="https://newmapsplus.as.uky.edu/sites/default/files/NMP%20Logo.png" alt="New Maps Plus"></a>
+      </div>
+      <div id=myfooter>
+        <ul>
+
+          <li>See my projects on GitHub: <a href="https://github.com/JGO324">JO324</a></li>
+          <li>Visit my projects on Carto: <a href="https://nmp.carto.com/u/jgo324">JO324</a></li>
+          <li>Visit my facebook page: <a
+              href='https://www.facebook.com/joel.goncalvesdefreitas'>joel.goncalvesdefreitas</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+
+
+  </section>
 </body>
 
 </html>
